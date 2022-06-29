@@ -159,5 +159,4 @@ describe('First Api Tests', () => {
       expect(response.data).to.have.property('url').to.equal('https://httpbin.org/delete');
       });
   });
-
 });
