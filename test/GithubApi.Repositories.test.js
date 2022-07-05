@@ -10,9 +10,9 @@ const chaiSubset = require('chai-subset');
 
 chai.use(chaiSubset);
 
-const CryptoJS = require('crypto-js');
+const md5 = require('md5');
 
-describe('GET Requests', () => {
+describe('Github Api GET Request Tests', () => {
   const url = 'https://api.github.com/users/aperdomob';
   let reposUrl;
   let jasmineUrl;
@@ -76,10 +76,10 @@ describe('GET Requests', () => {
       describe('Should Get README.md file', () => {
         it('Should dowload README.md only', async () => {
           const response = await axios.get(readDownload);
-          console.log(CryptoJS.MD5(response.data));
 
           expect(response.status).to.equal(StatusCodes.OK);
           expect(response.statusText).to.equal('OK');
+          expect(md5(response.data)).to.equal('497eb689648cbbda472b16baaee45731');
         });
       });
     });
