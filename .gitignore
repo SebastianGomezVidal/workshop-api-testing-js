@@ -196,3 +196,6 @@ $RECYCLE.BIN/
 
 ## Reports ##
 report
+
+# Environment variables 
+.env
