@@ -2,8 +2,6 @@ const { StatusCodes } = require('http-status-codes');
 const { expect } = require('chai');
 const axios = require('axios');
 
-require('dotenv').config({ path: './.env' });
-
 describe('Redirection Test', () => {
   const oldRepo = 'https://github.com/aperdomob/redirect-test';
   const newRepo = 'https://github.com/aperdomob/new-redirect-test';
