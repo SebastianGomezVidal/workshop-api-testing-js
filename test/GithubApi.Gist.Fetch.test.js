@@ -5,6 +5,8 @@ const isomorphic = require('isomorphic-fetch');
 const chai = require('chai');
 chai.use(require('chai-subset'));
 
+require('dotenv').config({ path: './.env' });
+
 const jsCode = `
 function wait(method, time) {
   return new Promise((resolve) => {
@@ -62,7 +64,11 @@ describe('Given a github user', () => {
         });
       });
 
-      it('then the Gits should be accessible', () => expect(gistResponse.status).to.equal(StatusCodes.OK));
+      it('then the Gist should be accessible', () => {
+        expect(gistResponse.status).to.equal(StatusCodes.OK);
+        expect(gistResponse.body).to.not.equal(null);
+        expect(gistResponse.body).to.have.property('bytesWritten').to.be.a('number');
+      });
 
       describe('when delete a gist', () => {
         let deleteGist;

@@ -1,6 +1,8 @@
 const axios = require('axios');
 const { expect } = require('chai');
 
+require('dotenv').config({ path: './.env' });
+
 const urlBase = 'https://api.github.com';
 
 describe('Given an authenticate github user', () => {
