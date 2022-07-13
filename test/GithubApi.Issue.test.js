@@ -5,7 +5,7 @@ require('dotenv').config({ path: './.env' });
 
 const urlBase = 'https://api.github.com';
 
-describe('Given an authenticate github user', () => {
+describe('Given an authenticated github user', () => {
   let user;
 
   before(async () => {
@@ -33,6 +33,7 @@ describe('Given an authenticate github user', () => {
       });
 
       const { data } = response;
+      data.shift();
       firstRepository = data.shift();
     });
 
